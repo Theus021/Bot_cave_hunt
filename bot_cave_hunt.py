@@ -5,14 +5,17 @@ from HundlerPoke import HundlerPoke
 from utils import get_loot
 from utils import move_and_click
 from utils import get_poke
+from utils import get_order
 
 PLAYER_POSITION = (686, 369)
 POKEBOLL_AUTO_CATCH = (623, 599)
 BP_LOOT_POSITION1 = (1190, 698)
 LIST_ATTACK = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10']
 BATTLE_POSITION = (1245, 128)
+ORDER_FLY = (1298, 554)
 
 hundler_poke = HundlerPoke()
+
 auto_cast = True
  
 
@@ -35,7 +38,8 @@ def key_code(key):
         get_loot(PLAYER_POSITION, BP_LOOT_POSITION1) 
     if hasattr(key, 'char') and key.char == "3":
         get_poke(POKEBOLL_AUTO_CATCH, PLAYER_POSITION)
-
+    if hasattr(key, "char") and key.char == "4":
+        get_order(ORDER_FLY, PLAYER_POSITION)
     
 
 with Listener(on_release=key_code) as f:
